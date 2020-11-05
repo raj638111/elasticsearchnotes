@@ -27,6 +27,13 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable elasticsearch.service
 sudo /bin/systemctl start elasticsearch.service
 
+-- [Another way: Docker]
+
+CONTAINER ID        IMAGE                                                                     COMMAND                  CREATED             STATUS                     PORTS                                              NAMES
+c87b6e8385ad        docker.elastic.co/elasticsearch/elasticsearch:7.4.2                       "/usr/local/bin/dock…"   2 days ago          Up 3 minutes               0.0.0.0:9200->9200/tcp, 0.0.0.0:9300->9300/tcp     kafka_elasticsearch_1
+
+docker container exec -it kafka_elasticsearch_1 bash
+
 -- Validate if running...
 
 curl -XGET 127.0.0.1:9200
